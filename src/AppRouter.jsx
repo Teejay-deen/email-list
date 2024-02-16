@@ -10,7 +10,7 @@ const AppRouter = () => {
         <Routes>
             <Route path='/' element={<App />} />
             <Route path='create' element={<Add />} />
-            <Route path='update/id' element={<Update />} />
+            <Route path='update/:id' element={<Update />} />
         </Routes>
     </BrowserRouter>
   )

@@ -3,23 +3,28 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Add = () => {
-
-    const navigate= useNavigate()
+  const navigate = useNavigate();
 
   const [inputData, setInputData] = useState({
     name: "",
     email: "",
   });
 
-  
-  const handleSubmit =(e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post("http://localhost:3232/user", inputData).then(res=>{
-        alert("Data added successfully! ")
-        navigate("/")
 
-    }).catch(err =>console.log(err))
-}
+    // const users = await axios.get("http://localhost:3232/user");
+    // inputData.id = (users.data.length) + 1;
+    const id = Math.random()
+
+    axios
+      .post("http://localhost:3232/user", inputData)
+      .then((res) => {
+        alert("Data added successfully! ");
+        navigate("/");
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="d-flex w-100 vh-100 justify-content-center align-items-center">
       <div className="w-50 border bg-light p-5">
