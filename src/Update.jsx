@@ -51,7 +51,7 @@ const Update = () => {
             />
           </div>
           <br />
-          <button className="btn btn-info round-4">Update   </button>
+          <button className="btn btn-info round-4">Update</button>
         </form>
       </div>
     </div>
