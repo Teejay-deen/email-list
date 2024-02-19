@@ -6,14 +6,13 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 function App() {
-  // const [columns, setColumns] = useState([]);
   const [records, setRecords] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
       .get("http://localhost:3232/user")
-      // .then((res) => setColumns(Object.keys(res.data[0])))
+
       .then((res) => setRecords(res?.data || []))
       .catch((err) => console.log(err));
   }, []);
@@ -24,9 +23,8 @@ function App() {
       axios
         .delete("http://localhost:3232/user/" + id)
         .then((res) => {
-          // alert("Data deleted succesfuuly");
-          
-          window.location.reload()
+          alert("Data deleted succesfuuly");
+          window.location.reload();
         })
         .catch((err) => {
           console.log(err);
